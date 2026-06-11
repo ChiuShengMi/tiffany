@@ -3,6 +3,27 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-page: #f7f7f2;
+  --color-section: #eef0e8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #fbfbf8;
+  --color-heading: #152018;
+  --color-ink: #1e2520;
+  --color-body: #405044;
+  --color-muted: #536258;
+  --color-muted-light: #667268;
+  --color-subtle: #7b8c81;
+  --color-brand: #1f4f3a;
+  --color-brand-hover: #173c2c;
+  --color-brand-soft: #e7efe7;
+  --color-accent: #50715f;
+  --color-weekend: #b42318;
+  --color-line: #d8ddd1;
+  --color-line-soft: #e2e6dd;
+  --color-line-strong: #b8c2b3;
+  --color-line-hover: #99b59f;
+  --shadow-panel: 0 24px 80px rgba(24, 40, 30, 0.08);
+  --shadow-lifted: 0 18px 44px rgba(24, 40, 30, 0.08);
 }
 
 @theme inline {
@@ -22,6 +43,7 @@
   --color-brand-hover: #173c2c;
   --color-brand-soft: #e7efe7;
   --color-accent: #50715f;
+  --color-weekend: #b42318;
   --color-line: #d8ddd1;
   --color-line-soft: #e2e6dd;
   --color-line-strong: #b8c2b3;
@@ -43,4 +65,122 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .bg-page {
+    background-color: var(--color-page);
+  }
+
+  .bg-section {
+    background-color: var(--color-section);
+  }
+
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+
+  .bg-surface-muted {
+    background-color: var(--color-surface-muted);
+  }
+
+  .bg-brand {
+    background-color: var(--color-brand);
+  }
+
+  .bg-brand-soft {
+    background-color: var(--color-brand-soft);
+  }
+
+  .text-heading {
+    color: var(--color-heading);
+  }
+
+  .text-ink {
+    color: var(--color-ink);
+  }
+
+  .text-body {
+    color: var(--color-body);
+  }
+
+  .text-muted {
+    color: var(--color-muted);
+  }
+
+  .text-muted-light {
+    color: var(--color-muted-light);
+  }
+
+  .text-subtle {
+    color: var(--color-subtle);
+  }
+
+  .text-brand {
+    color: var(--color-brand);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .text-weekend {
+    color: var(--color-weekend);
+  }
+
+  .calendar-weekend {
+    color: var(--color-weekend) !important;
+  }
+
+  .border-line {
+    border-color: var(--color-line);
+  }
+
+  .border-line-soft {
+    border-color: var(--color-line-soft);
+  }
+
+  .border-line-strong {
+    border-color: var(--color-line-strong);
+  }
+
+  .border-line-hover {
+    border-color: var(--color-line-hover);
+  }
+
+  .shadow-panel {
+    box-shadow: var(--shadow-panel);
+  }
+
+  .shadow-lifted {
+    box-shadow: var(--shadow-lifted);
+  }
+
+  .hover\:bg-surface:hover {
+    background-color: var(--color-surface);
+  }
+
+  .hover\:bg-page:hover {
+    background-color: var(--color-page);
+  }
+
+  .hover\:bg-brand-hover:hover {
+    background-color: var(--color-brand-hover);
+  }
+
+  .hover\:border-line-hover:hover {
+    border-color: var(--color-line-hover);
+  }
+
+  .hover\:shadow-lifted:hover {
+    box-shadow: var(--shadow-lifted);
+  }
+
+  .focus\:border-line-hover:focus {
+    border-color: var(--color-line-hover);
+  }
+
+  .group:hover .group-hover\:text-brand {
+    color: var(--color-brand);
+  }
 }

@@ -9,10 +9,10 @@ type Tool = {
 
 const tools: Tool[] = [
   {
-    name: "文字整理",
-    slug: "text-cleaner",
-    description: "貼上內容後整理格式、移除多餘空白，適合日常文件處理。",
-    tag: "Text",
+    name: "共同行事曆",
+    slug: "shared-calendar",
+    description: "同步台灣與日本國定假日，並讓成員共同新增、編輯、刪除行事。",
+    tag: "Calendar",
   },
   {
     name: "圖片工具",
@@ -61,6 +61,12 @@ export default function Home() {
             >
               開發方向
             </a>
+            <Link
+              href="/account"
+              className="rounded-md px-3 py-2 text-body transition hover:bg-surface"
+            >
+              帳號
+            </Link>
           </nav>
         </header>
 

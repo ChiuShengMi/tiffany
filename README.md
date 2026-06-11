@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Toolbox
 
-## Getting Started
+Next.js tool site. The first planned tool is a shared calendar with user-based editing history.
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Supabase Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Authentication uses Supabase Auth. User profile data is stored in `public.user_profiles`, keyed by `auth.users.id`.
 
-## Learn More
+1. Create a Supabase project.
+2. Copy `.env.example` to `.env.local`.
+3. Fill in:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Open the Supabase SQL Editor and run `supabase/schema.sql`.
+5. Restart the dev server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Auth Routes
 
-## Deploy on Vercel
+- `/auth/sign-up`
+- `/auth/sign-in`
+- `/account`
+- `/auth/callback`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Shared Calendar
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The shared calendar is available at:
+
+```txt
+/tools/shared-calendar
+```
+
+It uses these Supabase tables:
+
+- `calendars`
+- `calendar_members`
+- `holiday_events`
+- `user_events`
+- `event_audit_logs`
+
+Holiday sync uses the Nager.Date public holiday API for `TW` and `JP`.
+
+After pulling schema changes, run `supabase/schema.sql` again in the Supabase SQL Editor.
+
+## Checks
+
+```bash
+npm run lint
+npm run build
+```
